@@ -24,7 +24,8 @@ const IssueCard = (props: any) => {
   const assign: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     let url = link2[Math.floor(Math.random() * link2.length)];
-    url = url + "/" + String(Number(deskNumber) - 1);
+
+    url = url + "/desk/*" + String(Number(deskNumber)) + "*";
     axios
       .patch(url, {
         assignee: assignee,
@@ -41,7 +42,7 @@ const IssueCard = (props: any) => {
     e.preventDefault();
     //i need to update the status column in the sheet where desk is equal to deskNumber
     let url = link2[Math.floor(Math.random() * link2.length)];
-    url = url + "/" + String(Number(deskNumber) - 1);
+    url = url + "/desk/*" + String(Number(deskNumber)) + "*";
     axios
       .patch(url, {
         status: "close",
